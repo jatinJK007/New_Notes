@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.NewNotes" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorAccent">@color/black</item>
+        <item name ="colorPrimaryDark">#359F9F</item>
+        <item name="colorPrimary">#B4B635</item>
+
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
+
+</resources>
