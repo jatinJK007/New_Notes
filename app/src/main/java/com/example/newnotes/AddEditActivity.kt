@@ -1,6 +1,8 @@
 package com.example.newnotes
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -26,9 +28,10 @@ class AddEditActivity : AppCompatActivity() {
 
         addEditActivityModel = ViewModelProvider(this).get(AddEditActivityModel::class.java)
 
-//
-        if (intent.hasExtra("note")) {
-            var note: Note = intent.getSerializableExtra("note") as Note
+
+        if (intent.hasExtra("note_edit")) {
+
+            var note: Note = intent.getSerializableExtra("note_edit") as Note
             binding.title.setText(note.title)
             binding.disp.setText(note.desc)
 
@@ -39,7 +42,6 @@ class AddEditActivity : AppCompatActivity() {
                 note.desc = desc
                 note.title = title
 
-                var note = Note(title = title, desc = desc)
 
                 addEditActivityModel.update(note, this)
                 finish()
@@ -47,15 +49,21 @@ class AddEditActivity : AppCompatActivity() {
             }
 
             binding.delete.setOnClickListener {
-                addEditActivityModel.delete(note,this)
+
+//                val toast=Toast.makeText(this,"deleted successfully",Toast.LENGTH_SHORT)
+//                toast.show()
+                Log.d("TAG", "MESSAGE in edit wala delete")
+                addEditActivityModel.delete(note, this)
                 finish()
             }
-        }
-        else{
+        } else {
             binding.AddEdit.setOnClickListener {
+
                 var title = binding.title.text.toString()
                 var desc = binding.disp.text.toString()
+
                 var note = Note(title = title, desc = desc)
+                Log.d("TAG", "MESSAGE in add matlab new wala")
 
                 addEditActivityModel.insert(note, this)
                 finish()

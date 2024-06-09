@@ -20,5 +20,4 @@ class AddEditActivityModel(application: Application) : AndroidViewModel(applicat
     }
 
 
-
 }

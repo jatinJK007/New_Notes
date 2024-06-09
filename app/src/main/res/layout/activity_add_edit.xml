@@ -3,45 +3,45 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/deleteAll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FEF5E7"
     tools:context=".AddEditActivity">
 
     <EditText
         android:id="@+id/title"
-        android:layout_width="0dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="104dp"
         android:background="@drawable/edt_bg"
         android:hint="Enter Your Title"
         android:padding="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:singleLine="true"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/disp"
-        android:layout_width="0dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/edt_bg"
-        android:padding="5dp"
         android:hint="Enter Your Description"
-        android:minHeight="30dp"
         android:inputType="textMultiLine"
+        android:minHeight="30dp"
+        android:padding="5dp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        android:textSize="22sp"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
         android:id="@+id/AddEdit"
@@ -49,8 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginTop="8dp"
-        android:text="Add Note"
         android:backgroundTint="@android:color/holo_blue_dark"
+        android:text="Add Note"
         app:layout_constraintEnd_toEndOf="@+id/disp"
         app:layout_constraintStart_toStartOf="@+id/disp"
         app:layout_constraintTop_toBottomOf="@+id/disp" />

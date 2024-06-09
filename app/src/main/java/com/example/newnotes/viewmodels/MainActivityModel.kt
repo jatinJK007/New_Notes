@@ -3,6 +3,7 @@ package com.example.newnotes.viewmodels
 import android.app.Application
 import android.content.Context
 import android.provider.ContactsContract
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.example.newnotes.database.Note
@@ -15,8 +16,4 @@ class MainActivityModel(application: Application) : AndroidViewModel(application
     init {
         noteList = NoteDatabase.getDb(application).Dao().getAllNotes()
     }
-
-//    fun deleteAll(note: Note,context:Context){
-//        NoteDatabase.getDb(context).Dao().deleteAll()
-//    }
 }

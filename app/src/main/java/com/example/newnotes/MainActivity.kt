@@ -1,7 +1,9 @@
 package com.example.newnotes
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -27,30 +29,39 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(binding.root)
 
+
+
+        setContentView(binding.root)
         noteList = ArrayList()
         viewModel = ViewModelProvider(this).get(MainActivityModel::class.java)
 
-        adapter = RvAdapter(noteList, this)
+        var observer = Observer<List<Note>> {
+            noteList = it
+            adapter = RvAdapter(noteList, this)
+            binding.rv.layoutManager = LinearLayoutManager(this)
+            binding.rv.adapter = adapter
+            Log.d("TAG", "observer ")
 
+        }
+        viewModel.noteList.observe(this, observer)
+
+
+        adapter = RvAdapter(noteList, this)
         binding.rv.layoutManager = LinearLayoutManager(this)
         binding.rv.adapter = adapter
 
-        var observer = Observer<List<Note>>{
-            noteList= it
-            adapter= RvAdapter(noteList,this)
-            binding.rv.layoutManager= LinearLayoutManager(this)
-            binding.rv.adapter=adapter
-        }
-
-
-        viewModel.noteList.observe(this , observer)
 
 
         binding.floatingActionButton.setOnClickListener {
             var intent = Intent(this, AddEditActivity::class.java)
             startActivity(intent)
+        }
+
+
+        registerForContextMenu(binding.rv)
+        binding.rv.setOnClickListener {
+            openContextMenu(binding.rv)
         }
     }
 }
